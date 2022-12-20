@@ -9,9 +9,16 @@
             Console.WriteLine("You are at position " + 0);
             Console.WriteLine("press any key to roll");
             Console.ReadKey();
+            
+            
             Random num = new Random();
             int die = num.Next(1,7);
             Console.WriteLine("YOu have rolled this " + die);
+            
+            
+            startposition = Options.Operation(die, startposition);
+            if (startposition <= 0) { Console.WriteLine("You went under zero Start again"); }
+            else { Console.WriteLine("You are at position" + startposition); }
         }
         
     }
