@@ -2,21 +2,22 @@
 {
     internal class Options
     {
-        public static int Operation(int die, int startposition)
+        public static int Operation(Player player,int die, int startposition)
         {
             Random num = new Random();
             int option = num.Next(1,4);
             switch (option)
             {
-                case 1:startposition = NoPlay(die,startposition); break;
+                case 1:startposition = NoPlay(die,startposition); player.Ladder = false; break;
                 case 2:
                     if (!(die + startposition > 100)) { startposition = Ladder(die, startposition); }
                     else
                     {
                         Console.WriteLine("You went over 100\n Play again");
                         return startposition;
-                    }; break;
-                case 3:startposition = Snake(die,startposition); break;
+                    };
+                    player.Ladder = true; break;
+                case 3:startposition = Snake(die,startposition); player.Ladder = false; break;
             }
             return startposition;
         }
