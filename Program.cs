@@ -10,16 +10,19 @@ namespace SnakesAndLadder
             Console.WriteLine();
             Console.WriteLine("Press key to start the Game.");
             Console.ReadKey();
-            int Position = 99;
+            int Position = 0;
+            int NumberOfRolls = 0;
             bool PlayGame = true;
             while (PlayGame)
             {
-                Position = Play(Position);
+                Position = Play(Position, NumberOfRolls);
+                NumberOfRolls++;
                 if (Position <= 0) 
                 {
                     Console.WriteLine("You went under 0: ");
                     Console.WriteLine();
                     Position= 0;
+                    NumberOfRolls = 0;
                 }
                 else if(Position == 100)
                 {
@@ -32,13 +35,14 @@ namespace SnakesAndLadder
 
         }
 
-        public static int Play(int Position)
+        public static int Play(int Position,int NumberOfRolls)
         {
             Console.WriteLine();
-            Console.WriteLine("You are at position: " + Position);
+            Console.WriteLine("You are at position: " + Position + $". You have rolled {NumberOfRolls} times");
             Console.WriteLine("Press a key to Roll.");
             Console.ReadKey();
             int Roll = RollDice();
+
             Console.WriteLine("You have Rolled: " + Roll);
             Console.WriteLine();
             Position = Options.Operation(Roll, Position);

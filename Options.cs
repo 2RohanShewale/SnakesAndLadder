@@ -4,7 +4,6 @@
     {
         public static int Operation(int die, int startposition)
         {
-            if ((die + startposition) > 100 ) { }
             Random num = new Random();
             int option = num.Next(1,4);
             switch (option)
