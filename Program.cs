@@ -10,7 +10,7 @@ namespace SnakesAndLadder
             Console.WriteLine();
             Console.WriteLine("Press key to start the Game.");
             Console.ReadKey();
-            int Position = 0;
+            int Position = 99;
             bool PlayGame = true;
             while (PlayGame)
             {
@@ -21,7 +21,7 @@ namespace SnakesAndLadder
                     Console.WriteLine();
                     Position= 0;
                 }
-                else if(Position >= 100)
+                else if(Position == 100)
                 {
                     break;
                 }

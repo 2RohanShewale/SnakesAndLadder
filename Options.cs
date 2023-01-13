@@ -4,12 +4,19 @@
     {
         public static int Operation(int die, int startposition)
         {
+            if ((die + startposition) > 100 ) { }
             Random num = new Random();
             int option = num.Next(1,4);
             switch (option)
             {
                 case 1:startposition = NoPlay(die,startposition); break;
-                case 2:startposition = Ladder(die,startposition); break;
+                case 2:
+                    if (!(die + startposition > 100)) { startposition = Ladder(die, startposition); }
+                    else
+                    {
+                        Console.WriteLine("You went over 100\n Play again");
+                        return startposition;
+                    }; break;
                 case 3:startposition = Snake(die,startposition); break;
             }
             return startposition;
